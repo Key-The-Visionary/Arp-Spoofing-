@@ -1,31 +1,48 @@
 # ARP Spoofing Attack
 
 ## Objective
-[Brief Objective - Remove this afterwards]
 
-The Detection Lab project aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a Security Information and Event Management (SIEM) system, generating test telemetry to mimic real-world attack scenarios. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
+- Conduct an ARP spoofing attack and understand how it is done step by step.
+- Understand how to detect an ARP spoofing attack and write a Python script that
+automates the process.
+- Get hands-on practice with the Linux CLI.
 
 ### Skills Learned
-[Bullet Points - Remove this afterwards]
 
-- Advanced understanding of SIEM concepts and practical application.
-- Proficiency in analyzing and interpreting network logs.
-- Ability to generate and recognize attack signatures and patterns.
-- Enhanced knowledge of network protocols and security vulnerabilities.
-- Development of critical thinking and problem-solving skills in cybersecurity.
+- MITM Attack or On-the-path attack
+- Write and test a Python script that automates the ARP spoofing attack.
+- Learn to write Python programs that leverage the Scapy library to automate
+cybersecurity tasks.
+
 
 ### Tools Used
-[Bullet Points - Remove this afterwards]
 
-- Security Information and Event Management (SIEM) system for log ingestion and analysis.
-- Network analysis tools (such as Wireshark) for capturing and examining network traffic.
-- Telemetry generation tools to create realistic network traffic and attack scenarios.
+- dsniff tool
+- Scapy Library python script
 
 ## Steps
-drag & drop screenshots here or use imgur and reference them using imgsrc
 
-Every screenshot should have some text explaining what the screenshot is about.
+This screenshot shows the downloading and install of the dsniff tool that was used to carryout this arp spoofing attack. 
 
-Example below.
+![arp spoofing screenshot 1](https://github.com/user-attachments/assets/85d36331-1696-43cd-80ae-576a5af3ffa1)
 
-*Ref 1: Network Diagram*
+---------------------------------------------------------------------------------------------------------------
+
+
+ This Next step was to use the netdiscover command to discover other ip addresses of other machines on the network and enable IP forwarding.
+
+![arp spoofing screenshot 2](https://github.com/user-attachments/assets/e4342b11-40d5-47fd-950d-12b597cd321f)
+
+--------------------------------------------------------------------------------------------------------------
+
+Next, I ran the  sudo arpspoof -i eth0 -t 192.168.100.101 192.168.100.1 command to generate multiple fake ARP replies. I ran this command again in a new terminal with the ip addresses reversed to trick the router into believing I am the victim ip and then ran the urlsnarf tool to extract the urls of websites visited.
+
+![arp spoofing screenshot 3](https://github.com/user-attachments/assets/fee8a30d-ae93-4718-a656-18a6f082b000)
+![arp spoofing screenshot 4](https://github.com/user-attachments/assets/90118d6f-32fc-4579-a00d-a5bb9f720ee4)
+
+--------------------------------------------------------------------------------------------------------------
+
+In this step I generated some traffic on the metasploitable victim machine using the wget command/tool.  wget http://www.google.com
+
+
+![arp spoofing screenshot 5](https://github.com/user-attachments/assets/29a09ff0-6659-4c39-905e-482e7670c970)
